@@ -14,13 +14,11 @@
             </h2>
             <hr />
             <h4 class="card-title text-center mt-3">
-              Bem vindo ao APPlanilhas, o seu modelo de loja virtual !
+              Bem vindo ao APPlanilhas, o seu template Angular de loja virtual !
             </h4>
-            <p class="text-center">
-              ----------------------------
-            </p>
-            <p class="text-center mt-3">
-              ----------------------------
+            <p class="card-title text-center">
+              Este é um projeto/template de uma loja virtual em Angular que salva e resgata dados de uma planilha do Google Sheets via API REST.
+              A comunicação é realizada através do <a target="_blank" href="https://sheetdb.io">https://sheetdb.io</a>.
             </p>
 
             <div class="row1-container mt-3 mb text-center">
@@ -46,6 +44,17 @@
                 </p>
                 <a *ngIf="disabled" routerLink="/meu-carrinho" class="card-button"> Ver mais</a>
                 <a *ngIf="!disabled" class="card-button-disabled"> Necessário ter pelo menos 1 item no carrinho</a>
+              </div>
+
+              <div class="box blue">
+                <div class="card-icon">
+                  <i class="fa fa-book fa-3x"></i>
+                </div>
+                <h5>Tutorial do APPlanilhas</h5>
+                <p class="text-center mt-3 card-text">
+                  Veja como configurar, rodar e fazer deploy do seu projeto.
+                </p>
+                <a routerLink="/tutorial" class="card-button"> Ver mais</a>
               </div>
             </div>
 

@@ -1,0 +1,90 @@
+<div *ngIf="loading">
+  <app-loadder></app-loadder>
+</div>
+
+<section class="h-100 mt-3 section mb-3" *ngIf="!loading">
+  <div class="container h-100">
+    <div class="row justify-content-md-center h-100">
+      <div class="card-wrapper">
+        <div class="card fat">
+          <div class="card-body" style="background-color: white">
+            <div class="divImg mt-3"><img src="assets/logo.png" class="img" /></div>
+            <h2 class="card-title text-center mt-3" id="titulo">
+              APPlanilhas - Loja Virtual
+            </h2>
+            <hr />
+            <h4 class="card-title text-center mt-3">
+              Siga os passos abaixo para configurar, rodar e fazer deploy do seu projeto.
+            </h4>
+
+            <h6 class="card-title text-left mt-5">Pré-Requisitos</h6>
+            <p class="text-left">Ter o node.js e o angular instalado.</p>
+            <p class="text-left">Ter criado um repositório com o nome do seu projeto no github.</p>
+
+            <h6 class="card-title text-left mt-5">Planilha Google Sheets e API SheetsDB.io</h6>
+            <p class="text-left">
+              1°: Crie uma planilha no Google Sheets com os dados que deseja guardar.
+            </p>
+            <p class="text-left">
+              2°: Copie a url da planilha criada e vá para o site
+              <a target="_blank" href="https://sheetdb.io">https://sheetdb.io</a> para criar a API que irá se comunicar com sua
+              planilha. Nesta etapa, é necessário fazer login com o mesmo usuário do Google Drive e ativar a Basic Auth da API em Settings.
+            </p>
+
+            <h6 class="card-title text-left mt-5">Configurando o APPlanilhas no seu projeto</h6>
+            <p class="text-left">
+              1°: Baixe o template: <a target="_blank"
+                href="https://github.com/matheuspcouto/APPlanilhas">https://github.com/matheuspcouto/APPlanilhas</a>.
+            </p>
+            <p class="text-left">
+              2°: Crie um novo projeto (<i>ng new Nome-Projeto</i>) e copie para ele a pasta src do template APPlanilhas
+              baixado.
+            </p>
+            <p class="text-left">
+              4°: Copie o bloco de styles e scripts no angular.json do template APPlanilhas.
+            </p>
+            <p class="text-left">
+              5°: Copie o conteúdo do package.json do template APPlanilhas, exceto o bloco "name".
+            </p>
+            <p class="text-left">
+              6°: Instale as dependências do projeto com o comando: <i>npm install</i>.
+            </p>
+            <p class="text-left">
+              7°: Coloque informações da API criada no arquivo api-info.enum.ts.
+            </p>
+            <p class="text-left">
+              8°: Na pasta <i>models</i>, garanta que a classe do objeto de retorno tenha os mesmos campos da planilha
+              criada. Verifique tbm a pasta <i>services</i> e <i>modules</i>.
+            </p>
+            <p class="text-left">
+              9°: Adapte os estilos do template de acordo com a sua finalidade.
+            </p>
+            <p class="text-left">
+              10°: Rode o projeto com o comando: <i>ng serve -o</i>.
+            </p>
+
+            <h6 class="card-title text-left mt-5">Build e Deploy</h6>
+            <p class="text-left">
+              1°: Instale a lib do angular-cli-pages pelo comando: <i>ng add angular-cli-ghpages</i> (Somente na primeira vez).
+            </p>
+            <p class="text-left">
+              2°: Faça push das suas alterações no repositório do seu projeto no github.
+            </p>
+            <p class="text-left">
+              3°: Faça o build e gere pasta dist com o comando: <i>ng build --base-href="https://SEU_USUARIO_GITHUB.github.io/SEU_PROJETO/"</i>
+            </p>
+            <p class="text-left">
+              4°: Faça o deploy com o comando: <i>npx angular-cli-ghpages --dir=dist/SEU_PROJETO</i>.
+            </p>
+
+            <br /><br />
+            <hr />
+
+            <app-footer></app-footer>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,25 @@
+.card-img-top {
+  margin: 30px 0 15px 2px;
+  max-width: 600px;
+  max-height: 300px;
+  width: auto;
+  height: auto;
+}
+
+.card-button {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  width: 100%;
+  background-color: var(--blue);
+  color: #fff !important;
+  border-radius: 8px;
+  text-decoration: none;
+  margin-top: 25px;
+}
+
+.card-button:hover {
+  text-decoration: none;
+  background-color: var(--blue);
+  color: #fff;
+}

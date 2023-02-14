@@ -1,0 +1,68 @@
+<div *ngIf="loading">
+  <app-loadder></app-loadder>
+</div>
+
+<section class="h-100 mt-3 section mb-3" *ngIf="!loading">
+  <div class="container h-100">
+    <div class="row justify-content-md-center h-100">
+      <div class="card-wrapper">
+        <div class="card fat">
+          <div class="card-body" style="background-color: white">
+
+            <a routerLink="/home">
+              <button type="button" class="btn btnVoltar text-center">
+                <i class="fa fa-arrow-left float-left"></i> Voltar
+              </button>
+            </a><br><br>
+
+            <div class="divImg mt-3">
+              <img src="assets/logo.png" class="img" />
+            </div>
+
+            <h2 class="card-title text-center mt-3" id="titulo">
+              Pedido Realizado <i class="fa fa-check"></i>
+            </h2>
+            <hr />
+
+            <h5 class="card-title text-left mt-3">Pedido:</h5>
+            <p class="card-title text-left mt-3" id="codigoPedido">{{ pedido.codigoPedido }}</p>
+            <a class="btn btnCopiar" (click)="copiarCodigo($event)"><i class="fa fa-copy"></i> Copiar código</a>
+
+            <h5 class="card-title text-left mt-3">Comprador:</h5>
+            <p class="card-title text-left mt-3">{{ pedido.nome }}</p>
+
+            <h5 class="card-title text-left mt-3">CPF/CNPJ:</h5>
+            <p class="card-title text-left mt-3">{{ pedido.documento }}</p>
+
+            <h5 class="card-title text-left mt-3">E-mail:</h5>
+            <p class="card-title text-left mt-3">{{ pedido.email }}</p>
+
+            <h5 class="card-title text-left mt-3">Data do pedido:</h5>
+            <p class="card-title text-left mt-3">{{ pedido.dataPedido | date:'MM/dd/yyyy' }}</p>
+
+            <h5 class="card-title text-left mt-3">Produtos:</h5>
+            <div *ngFor="let prod of produtos">
+              <p class="card-title text-left">{{ formatarProdutos(prod) }}</p>
+            </div>
+
+            <h5 class="card-title text-left mt-3">Valor Total:</h5>
+            <p class="card-title text-left mt-3">{{ valorTotalFormatado() }}</p>
+
+            <h5 class="card-title text-left mt-3">Forma de Pagamento:</h5>
+            <p class="card-title text-left mt-3 mb-5">{{ pedido.formaPagamento }}</p>
+
+            <div class="label-info alert alert-info text-center">
+              <i class="fa fa-exclamation-circle float-left"></i>
+              <p>Este comprovante é muito importante, então tire print ou copie o código do pedido para se proteger.</p>
+              <p class="mt-3"> Ao realizar o pagamento, envie o comprovante para o número abaixo: </p>
+              <b><a class="btn" href="https://api.whatsapp.com/send?phone=" target="_blank">(99) 9
+                  9999-9999</a></b>
+            </div>
+
+            <hr />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,74 @@
+<div *ngIf="loading">
+  <app-loadder></app-loadder>
+</div>
+
+<section class="h-100 mt-3 section mb-3" *ngIf="!loading">
+  <div class="container h-100">
+    <div class="row justify-content-md-center h-100">
+      <div class="card-wrapper">
+        <div class="card fat">
+          <div class="card-body" style="background-color: white">
+
+            <a routerLink="/home">
+              <button type="button" class="btn btnVoltar text-center">
+                <i class="fa fa-arrow-left float-left"></i> Voltar
+              </button>
+            </a><br><br>
+
+            <div class="divImg mt-3">
+              <img src="assets/logo.png" class="img" />
+            </div>
+            <h2 class="card-title text-center mt-3" id="titulo">
+              Meu Carrinho
+            </h2>
+            <hr *ngIf="produtos.length == 0" />
+            <br *ngIf="produtos.length > 0">
+
+            <div *ngIf="produtos.length == 0">
+              <p class="card-title text-center mt-3">Você não tem nenhum item no carrinho !</p>
+              <p class="card-title text-center">Se quiser, dê uma olhada em nossos produtos</p>
+            </div>
+
+            <div class="my-login-validation table-responsive" *ngIf="produtos.length > 0">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">Produto</th>
+                    <th scope="col">Qtd</th>
+                    <th scope="col">Valor</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let produto of produtos; let i = index">
+                    <td>{{formatarProdutoCarrinho(produto)}}</td>
+                    <td>{{produto.qtdItem}}</td>
+                    <td>{{produto.valor | currency:'BRL'}}</td>
+                    <td>{{valorTotalProduto(produto)}}</td>
+                    <td>
+                      <button type="button"  style="width: 50px;" class="btn btn-outline-danger btn-sm"
+                        [appModalConfirmacao]="{title: 'Quer mesmo remover este item do carrinho?', message: 'Ao confirmar, ele não fará mais parte do pedido.'}"
+                        (then)="removerCarrinho(produto)"><i class="fa fa-trash"></i></button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <h6 class="card-title text-right mt-3">Total a Pagar: {{totalCarrinhoFormatado()}}</h6>
+            </div>
+
+            <div class="form-group m-0" *ngIf="produtos.length > 0">
+              <button (click)="finalizarPedido()" type="button" id="btnEnviar" class="btn btn-success btn-block">
+                Fechar Carrinho <i class="fa fa-shopping-cart"></i>
+              </button>
+            </div>
+
+            <hr />
+            <app-footer></app-footer>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,62 @@
+<div *ngIf="loading">
+  <app-loadder></app-loadder>
+</div>
+
+<section class="h-100 mt-3 section mb-3" *ngIf="!loading">
+  <div class="container h-100">
+    <div class="row justify-content-md-center h-100">
+      <div class="card-wrapper">
+        <div class="card fat">
+          <div class="card-body" style="background-color: white">
+            <div class="divImg mt-3"><img src="assets/logo.png" class="img" /></div>
+            <h2 class="card-title text-center mt-3" id="titulo">
+              APPlanilhas
+            </h2>
+            <hr />
+            <h4 class="card-title text-center mt-3">
+              Bem vindo ao APPlanilhas, o seu modelo de loja virtual !
+            </h4>
+            <p class="text-center">
+              ----------------------------
+            </p>
+            <p class="text-center mt-3">
+              ----------------------------
+            </p>
+
+            <div class="row1-container mt-3 mb text-center">
+              <i class="fa fa-shirt"></i>
+              <div class="box blue">
+                <div class="card-icon">
+                  <i class="fa fa-inbox fa-3x"></i>
+                </div>
+                <h5>Nossos Produtos</h5>
+                <p class="text-center mt-3 card-text">
+                  Venha conferir nossos produtos.
+                </p>
+                <a routerLink="/produtos" class="card-button"> Ver mais</a>
+              </div>
+
+              <div [class]="disabled ? 'box blue' : 'box gray'">
+                <div class="card-icon">
+                  <i class="fa fa-shopping-cart fa-3x"></i>
+                </div>
+                <h5>Meu Carrinho</h5>
+                <p class="text-center mt-3 card-text">
+                  Veja o que você tem no carrinho.
+                </p>
+                <a *ngIf="disabled" routerLink="/meu-carrinho" class="card-button"> Ver mais</a>
+                <a *ngIf="!disabled" class="card-button-disabled"> Necessário ter pelo menos 1 item no carrinho</a>
+              </div>
+            </div>
+
+            <br /><br />
+            <hr />
+
+            <app-footer></app-footer>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

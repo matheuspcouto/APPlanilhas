@@ -11,6 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 import { formatarCpf } from 'src/app/shared/Utils/documento-formatador';
 import { formatarProdutoCarrinho, formatarProdutosPedido, formatarValorTotalProduto, } from 'src/app/shared/Utils/produto-formatador';
 import { HttpErrorResponse } from '@angular/common/http';
+import { formatarTelefone } from 'src/app/shared/Utils/telefone.formatador';
 
 @Component({
   selector: 'app-finalizar-pedido',
@@ -68,6 +69,7 @@ export class FinalizarPedidoComponent implements OnInit {
         this.pedido.status = StatusPedido.A_PAGAR;
         this.pedido.codigoPedido = this.gerarCodigoPedido(this.pedido);
         this.pedido.documento = formatarCpf(this.pedido.documento);
+        this.pedido.telefone = formatarTelefone(this.pedido.telefone);
 
         // TESTES LOCAIS SEM CHAMADA DE API
         sessionStorage.setItem('pedido', JSON.stringify(this.pedido));
@@ -88,6 +90,7 @@ export class FinalizarPedidoComponent implements OnInit {
           },
           error: (error: HttpErrorResponse) => {
             this.notificationService.error(error.message, 'Erro');
+            this.loading = false;
           },
         }); */
       } catch (error: any) {
